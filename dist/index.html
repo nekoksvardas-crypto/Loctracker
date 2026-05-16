@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LocTracker</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="app">
+    <aside class="left-panel"><h2>Map</h2><div class="map">Map canvas</div></aside>
+    <main class="content">
+      <header><h1>Dashboard</h1><button id="openModal">Create Order</button></header>
+      <section class="kpis"><div class="card">KPI 1</div><div class="card">KPI 2</div><div class="card">KPI 3</div></section>
+      <section class="tables">
+        <div class="card"><h3>Orders</h3><table id="ordersTable"><thead><tr><th>Order</th><th>Route summary</th></tr></thead><tbody></tbody></table></div>
+        <div class="card"><h3>Fleet table</h3><p>Existing feature preserved.</p></div>
+        <div class="card"><h3>Driver hours</h3><p>Existing feature preserved.</p></div>
+        <div class="card"><h3>Chat</h3><p>Existing feature preserved.</p></div>
+      </section>
+      <section class="card"><h3>Selected transport route timeline</h3><ol id="timeline"></ol></section>
+    </main>
+  </div>
+
+  <dialog id="orderModal">
+    <form id="orderForm" method="dialog">
+      <h2>Create Order</h2>
+      <div id="stops"></div>
+      <button type="button" id="addStop">+ Add Stop</button>
+      <menu>
+        <button value="cancel">Cancel</button>
+        <button id="saveOrder" value="default">Save order</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <template id="stopTemplate">
+    <div class="stop">
+      <select class="type"></select>
+      <input class="location" placeholder="Location / Address" required/>
+      <input class="datetime" type="datetime-local" required/>
+      <input class="notes" placeholder="Notes"/>
+      <input class="task" placeholder="Assigned task"/>
+      <input class="instruction" placeholder="Driver instruction"/>
+      <label><input class="completed" type="checkbox"/> Completed</label>
+      <button type="button" class="remove">Remove</button>
+    </div>
+  </template>
+
+  <script src="main.js"></script>
+</body>
+</html>
